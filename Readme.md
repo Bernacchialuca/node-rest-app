@@ -1,4 +1,4 @@
-# Verifarma - RIMS / Instance - API
+# Proyecto final UNLaM
 
 ## Configuraciones
 
