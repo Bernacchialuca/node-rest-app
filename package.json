@@ -1,0 +1,57 @@
+{
+  "name": "unlam",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run upgrade-db && node ./bin/init.js",
+    "dev": "nodemon ./bin/init.js",
+    "test-lint": "eslint ./lib ./tests",
+    "test-mocha": "mocha --exit tests/{,utils/}**/*.test.js",
+    "test": "nyc npm run test-mocha",
+    "generate-api-doc": "api-doc -f ./lib -o ./doc.md",
+    "upgrade-db": "sequelize-cli db:migrate --config ./db-upgrade/config.js --migrations-path ./db-upgrade/migrations/"
+  },
+  "dependencies": {
+    "axios": "^1.6.6",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csv-reader": "^1.0.12",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.4.3",
+    "express-winston": "^4.2.0",
+    "helmet": "^4.6.0",
+    "joi": "^17.12.2",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^11.1.0",
+    "mockery": "^2.1.0",
+    "module-alias": "^2.2.2",
+    "node-schedule": "^2.0.0",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.35.2",
+    "sequelize-cli": "^6.6.2",
+    "sequelize-router-pkg": "git+https://github.com/gabrielc17/Sequelize-Router-Pkg",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-formatter-checkstyle-relative-paths": "^1.0.1",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^29.7.0",
+    "nyc": "^15.1.0",
+    "should": "^13.2.3",
+    "supertest": "^6.3.3"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@lib": "./lib/",
+    "@logger": "./lib/logger.js",
+    "@utils": "./lib/utils/",
+    "@routes": "./lib/routes/",
+    "@middlewares": "./lib/utils/middlewares/",
+    "@decorators-utils": "./lib/utils/decorators/",
+    "@models": "./lib/models/"
+  }
+}
